@@ -29,7 +29,7 @@ print("Movimiento 4: ", movimiento4.direccion, "tecla: ", movimiento4.usekey)
 move = input("a donde quieres moverte? ")
 if move == movimiento1.usekey:
     print("Te has movido a la ", movimiento1.direccion)
-elif move == movimiento2.usekey:
+elif move == movimiento2.usekey: 
     print("Te has movido a la ", movimiento2.direccion)
 elif move == movimiento3.usekey:
     print("Te has movido a la ", movimiento3.direccion)
