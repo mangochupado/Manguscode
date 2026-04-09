@@ -19,7 +19,7 @@ WITHE = (255, 255, 255)
 ORANGE = (255, 165, 0)
 
 #sprites
-Mangus_size = (15, 16)
+Mangus_size = (75, 76)
 Mangus_speed = 7
 
 #cargar imagenes

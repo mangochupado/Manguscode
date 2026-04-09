@@ -26,6 +26,5 @@ class gracielas:
 
         mangus = resource_path("assets\\imagenes\\mangus.png")
         mangus_image.append(pygame.image.load(mangus))
-        screen.blit(mangus_image[0], self.rect) #dibujar el sprite en la pantalla usando su rectangulo para posicionarlo
-        
+        screen.blit(pygame.transform.scale(mangus_image[0], fondo.Mangus_size), self.rect)
         
