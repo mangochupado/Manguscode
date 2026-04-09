@@ -1,8 +1,12 @@
-import assets
 import pygame
+import random
+import math
+import os
+import sys
+
 #fondo
-ANCHURA = 777
-ALTURA = 777
+ANCHURA = 677
+ALTURA = 677
 BACKGROUND_COLOR = (0,0,0) #color de fondo
 
 #colores
@@ -15,5 +19,8 @@ WITHE = (255, 255, 255)
 ORANGE = (255, 165, 0)
 
 #sprites
-Mangus_size = (27, 27)
+Mangus_size = (15, 16)
 Mangus_speed = 7
+
+#cargar imagenes
+

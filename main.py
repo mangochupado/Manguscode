@@ -1,12 +1,10 @@
 import pygame
 from fondo import *
 from sprites import *
-import random
-import sprites
-import math
 import sys
-import os
 import fondo
+import os
+import sprites
 
 # Iniciar el pygame
 class juego:
@@ -14,7 +12,15 @@ class juego:
         pygame.init()
         self.screen = pygame.display.set_mode((fondo.ANCHURA, fondo.ALTURA))
         pygame.display.set_caption("Mangus Cunulungus")
-        #reloj para controlar los fps
+        def resource_path(relative_path):
+            try:
+                base_path = sys._MEIPASS
+            except Exception:
+                base_path = os.path.abspath(".")
+                return os.path.join(base_path, relative_path)
+        amon = resource_path("assets\\imagenes\\mangus.png")
+        icono = pygame.image.load(amon)
+        pygame.display.set_icon(icono) 
         self.clock = pygame.time.Clock()
         self.running = True
         self.gracielas = gracielas()
