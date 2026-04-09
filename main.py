@@ -1,6 +1,8 @@
 import pygame
 from fondo import *
+from sprites import *
 import random
+import sprites
 import math
 import sys
 import os
@@ -10,19 +12,25 @@ import fondo
 class juego:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((fondo.WIDTH, fondo.HEIGHT))
+        self.screen = pygame.display.set_mode((fondo.ANCHURA, fondo.ALTURA))
         pygame.display.set_caption("Mangus Cunulungus")
         #reloj para controlar los fps
         self.clock = pygame.time.Clock()
         self.running = True
+        self.gracielas = gracielas()
     def eventos(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
     def update(self):
-        pass
+        keys = pygame.key.get_pressed()
+        dx = keys[pygame.K_RIGHT] - keys[pygame.K_LEFT]
+        dy = keys[pygame.K_DOWN] - keys[pygame.K_UP]
+        self.gracielas.movimiento(dx, dy)
+        
     def draw(self):
         self.screen.fill(fondo.BACKGROUND_COLOR)
+        self.gracielas.draw(self.screen)
         pygame.display.flip()
     def aicson(self):
         while self.running == True:
