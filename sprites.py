@@ -1,6 +1,7 @@
 import fondo
 from fondo import *
-import pygame
+import main
+from main import *
 import pygame
 import os
 import sys
@@ -27,4 +28,6 @@ class gracielas:
         mangus = resource_path("assets\\imagenes\\mangus.png")
         mangus_image.append(pygame.image.load(mangus))
         screen.blit(pygame.transform.scale(mangus_image[0], fondo.Mangus_size), self.rect)
+        #animacion de movimiento del mangus
+        #si la tecla derecha esta presionada, se voltea la imagen
         

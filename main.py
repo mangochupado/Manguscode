@@ -35,8 +35,21 @@ class juego:
         self.gracielas.movimiento(dx, dy)
         
     def draw(self):
-        self.screen.fill(fondo.BACKGROUND_COLOR)
-        self.gracielas.draw(self.screen)
+        #variables
+        keys = pygame.key.get_pressed()
+        self.screen.fill(fondo.BACKGROUND_COLOR)            
+        #si la tecla derecha esta presionada, se voltea la imagen
+        if keys[pygame.K_LEFT]:
+            self.screen.blit(pygame.transform.flip(pygame.transform.scale(pygame.image.load(resource_path("assets\\imagenes\\mangus.png")), fondo.Mangus_size), True, False), self.gracielas.rect)
+            fondo.ultima_direccion = "izquierda"
+        elif keys[pygame.K_RIGHT]:
+            self.screen.blit(pygame.transform.scale(pygame.image.load(resource_path("assets\\imagenes\\mangus.png")), fondo.Mangus_size), self.gracielas.rect)
+            fondo.ultima_direccion = "derecha"
+        else:
+            if fondo.ultima_direccion == "izquierda":
+                self.screen.blit(pygame.transform.flip(pygame.transform.scale(pygame.image.load(resource_path("assets\\imagenes\\mangus.png")), fondo.Mangus_size), True, False), self.gracielas.rect)
+            else:
+                self.screen.blit(pygame.transform.scale(pygame.image.load(resource_path("assets\\imagenes\\mangus.png")), fondo.Mangus_size), self.gracielas.rect)
         pygame.display.flip()
     def aicson(self):
         while self.running == True:
