@@ -5,9 +5,11 @@ import os
 import sys
 
 #fondo
-ANCHURA = 677
-ALTURA = 677
+ANCHURA = 600
+ALTURA = 600
 BACKGROUND_COLOR = (225, 225, 225) #color de fondo
+#configuracion de pantalla completa
+CPantalla = False
 
 #colores
 BLACK = (0, 0, 0)
@@ -31,6 +33,7 @@ def resource_path(relative_path):
     except Exception:
         base_path = os.path.abspath(".")
         return os.path.join(base_path, relative_path)
+menu_fondo = resource_path("assets\\imagenes\\menuB.png")
 animacion_mangus = []
 Mframe_1 = resource_path("assets\\imagenes\\mangus.png")
 Mframe_2 = resource_path("assets\\imagenes\\mangusM1.png")

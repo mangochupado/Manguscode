@@ -30,8 +30,8 @@ class juego:
                 self.running = False
     def update(self):
         keys = pygame.key.get_pressed()
-        dx = keys[pygame.K_RIGHT] - keys[pygame.K_LEFT]
-        dy = keys[pygame.K_DOWN] - keys[pygame.K_UP]
+        dx = keys[pygame.K_RIGHT] - keys[pygame.K_LEFT] or keys[pygame.K_d] - keys[pygame.K_a]
+        dy = keys[pygame.K_DOWN] - keys[pygame.K_UP] or keys[pygame.K_s] - keys[pygame.K_w]
         self.gracielas.movimiento(dx, dy)
         
     def draw(self):
@@ -39,10 +39,10 @@ class juego:
         keys = pygame.key.get_pressed()
         self.screen.fill(fondo.BACKGROUND_COLOR)            
         #si la tecla derecha esta presionada, se voltea la imagen
-        if keys[pygame.K_LEFT]:
+        if keys[pygame.K_LEFT] or keys[pygame.K_a]:
             self.screen.blit(pygame.transform.flip(pygame.transform.scale(pygame.image.load(resource_path("assets\\imagenes\\mangus.png")), fondo.Mangus_size), True, False), self.gracielas.rect)
             fondo.ultima_direccion = "izquierda"
-        elif keys[pygame.K_RIGHT]:
+        elif keys[pygame.K_RIGHT] or keys[pygame.K_d]:
             self.screen.blit(pygame.transform.scale(pygame.image.load(resource_path("assets\\imagenes\\mangus.png")), fondo.Mangus_size), self.gracielas.rect)
             fondo.ultima_direccion = "derecha"
         else:
